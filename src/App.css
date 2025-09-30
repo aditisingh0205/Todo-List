@@ -1,0 +1,453 @@
+/* ---------- Base Styles: Desktop First ---------- */
+body.light{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/todo-bg2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; 
+}
+body.dark {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/todo-dark.jpg");
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; 
+}
+
+.todo-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  max-width: 95%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.40);  /* frosted glass */
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.50);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-top: 20px;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.25);
+  border-radius: 4px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* Heading */
+h1, .heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #222; /* darker for contrast */
+}
+
+/* ---------- Add Todo Row ---------- */
+.todo-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo-input,
+.todo-date,
+.todo-button {
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+}
+
+.todo-button {
+  background-color: rgb(105, 41, 88);  /* deep modern blue */
+  color: white;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
+
+.todo-button:hover {
+  background-color: rgb(140, 56, 118);  /* darker blue */
+}
+
+/* ---------- Task Row ---------- */
+.task-row {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.55); /* soft glass */
+  backdrop-filter: blur(6px);
+  gap: 6px;
+  transition: 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.task-row:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.task-col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.task-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.task-date {
+  font-size: 1rem;
+  color: #555;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.list-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #3a506b; /* same tone as button */
+  transition: 0.3s;
+}
+
+.list-button:hover {
+  color: #1c2f45;
+}
+
+/* ---------- Media Queries: Tablet & Mobile ---------- */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .todo-container {
+    max-width: 700px;
+    padding: 18px;
+  }
+
+  .todo-input,
+  .todo-date,
+  .todo-button {
+    font-size: 1.05rem;
+  }
+
+  .task-row {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .task-name {
+    font-size: 1.15rem;
+  }
+
+  .task-date {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .todo-container {
+    max-width: 95%;
+    margin: 15px auto;
+    padding: 12px;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .todo-row {
+    gap: 10px;
+  }
+
+  .todo-input,
+  .todo-date,
+  .todo-button {
+    font-size: 1rem;
+  }
+
+  .task-name {
+    font-size: 1rem;
+  }
+
+  .task-date {
+    font-size: 0.85rem;
+  }
+
+  .task-actions {
+    gap: 5px;
+  }
+}
+
+/* Edit Input */
+.editInput {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 1.1rem;
+  border: 1px solid rgba(58, 80, 107, 0.5); /* bluish border */
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  transition: all 0.2s ease;
+} 
+
+.editInput:focus {
+  border-color: #3a506b;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+@supports (-webkit-backdrop-filter: blur(0)) {
+  .todo-container {
+    padding-top: 30px; /* push content down so heading is fully visible */
+  }
+}
+.todo-date-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.theme-toggle {
+  position: absolute; /* place relative to .todo-container */
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+  transition: 0.9s;
+}
+
+.theme-toggle:hover {
+  color: #555;
+}
+
+/* Dark Theme Container */
+.todo-container.dark {
+  background: rgba(88, 85, 85, 0.85); /* dark frosted glass effect */
+  color: #f1f1f1;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Heading in dark theme */
+.todo-container.dark h1,
+.todo-container.dark .heading {
+  color: #f1f1f1;
+}
+
+/* Add Task Inputs & Button */
+.todo-container.dark .todo-input,
+.todo-container.dark .todo-date {
+  background-color: rgba(255, 255, 255, 0.8);
+  color:black;
+  border: 1px solid #666;
+}
+
+.todo-container.dark .todo-button {
+  background-color: #8a7e96;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.todo-container.dark .todo-button:hover {
+  background-color: #8e8b91;
+}
+
+/* Task Rows */
+.todo-container.dark .task-row {
+  background: rgba(226, 219, 219, 0.9);
+  border-bottom: 1px solid #555;
+  color: black;
+}
+
+.todo-container.dark .task-row:hover {
+  background: rgba(203, 200, 200, 0.8);
+}
+
+/* Task Name & Date */
+.todo-container.dark .task-name,
+.todo-container.dark .task-date {
+  color: black;
+}
+
+/* Action Buttons (Edit/Delete) */
+.todo-container.dark .list-button {
+  color: black;
+}
+
+.todo-container.dark .list-button:hover {
+  color: black;
+}
+
+/* Edit Input */
+.todo-container.dark .editInput {
+  background-color: rgba(60, 60, 60, 0.7);
+  color: #f1f1f1;
+  border: 1px solid #888;
+}
+
+.todo-container.dark .editInput:focus {
+  background-color: rgba(70, 70, 70, 0.9);
+  border-color: #fff;
+}
+
+/* Theme Toggle Button */
+.todo-container.dark .theme-toggle {
+  color: #f1f1f1;
+}
+.todo-container.dark .todo-date-wrapper {
+  color: #ddd; /* lighter color for dark background */
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* left: menu, right: theme toggle */
+  margin-bottom: 10px;
+}
+
+/* Menu button */
+.menu-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.side-panel {
+  position: absolute;    /* relative to .todo-container */
+  top: 0;                /* top of container */
+  left: 0;          /* fully hidden to the left */
+  width: 300px;
+  height: auto;          /* full height of container */
+  background: rgba(215, 175, 188, 0.9);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.2);
+  transition: all 0.8s ease;
+  z-index: 10;
+  border-radius: 12px;
+}
+
+.side-panel.open {
+  left: 0;               /* slide fully into view */
+}
+
+
+/* Overlay covers only container */
+.todo-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  z-index: 5;
+}
+
+.menu-btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  background-color: rgba(255, 255, 255, 0.6); /* semi-transparent */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: #888;
+}
+.side-panel button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #888;
+   background-color: rgb(88, 29, 72); /* deep modern color */
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+
+.side-panel button:hover {
+  background-color: rgba(140, 56, 118, 0.9); /* darker on hover */
+}
+
+.task-row.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+  background: rgba(200, 200, 200, 0.3);
+}
+/* Hide default checkbox */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #999;
+  border-radius: 6px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+/* When checked → show tick */
+.custom-checkbox:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+/* Tick symbol */
+.custom-checkbox:checked::after {
+  content: "✔";
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 3px;
+}
+
+/* Hover effect */
+.custom-checkbox:hover {
+  border-color: #4caf50;
+}

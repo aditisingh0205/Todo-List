@@ -1,0 +1,13 @@
+.heading {
+  font-size: 3.2rem;
+  
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+
+  color: rgb(87, 33, 73);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
