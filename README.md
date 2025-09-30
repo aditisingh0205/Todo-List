@@ -10,9 +10,6 @@ A simple and interactive Todo List application built with **React**, **Redux Too
 - Smooth **animations** with Framer Motion  
 - Data fetching from API (DummyJSON)  
 
-## 🖼️ Preview
-![Todo App Screenshot](screenshot.png)  
-*(Add a screenshot of your app here — take a screenshot and save it as `screenshot.png` in the repo)*
 
 ## 🛠️ Tech Stack
 - **React** (Vite + JSX)  
