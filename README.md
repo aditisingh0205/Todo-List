@@ -10,6 +10,8 @@ A simple and interactive Todo List application built with **React**, **Redux Too
 - Smooth **animations** with Framer Motion  
 - Data fetching from API (DummyJSON)  
 
+## 🚀 Live Demo  
+Check out the app here: [Todo List on Netlify](https://68dc2b2062e44aa49058e078--jolly-syrniki-a19042.netlify.app/)
 
 ## 🛠️ Tech Stack
 - **React** (Vite + JSX)  
@@ -33,3 +35,4 @@ npm install
 
 # Run the development server
 npm run dev
+
